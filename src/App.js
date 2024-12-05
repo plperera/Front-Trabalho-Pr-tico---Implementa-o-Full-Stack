@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import LoginForm from './components/LoginForm';
+import Dashboard from './pages/Dashboard';
+import styled from 'styled-components';
+const App = () => (
+  <Container>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<LoginForm />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+    </Routes>
+  </Container>
+);
 
 export default App;
+
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: repeating-linear-gradient(45deg, #d6eaf8, #d6eaf8 20px, #eaf3fc 20px, #eaf3fc 40px);
+`;
